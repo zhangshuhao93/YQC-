@@ -6,12 +6,6 @@ import router from './router'
 
 import { Loadmore } from 'mint-ui';
 
-import Mint from 'mint-ui';
-Vue.use(Mint);
-import { Cell, Checklist } from 'mint-ui';
-Vue.component(Cell.name, Cell);
-Vue.component(Checklist.name, Checklist);
-
 Vue.config.productionTip = false
 
 Vue.component(Loadmore.name, Loadmore);

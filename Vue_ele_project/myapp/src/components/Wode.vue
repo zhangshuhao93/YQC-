@@ -1,8 +1,4 @@
 <template>
-<!--   <div class="hello">
-    <a href="#/login">登录</a>
-    <a href="#/regist">注册</a>
-  </div> -->
   <div class="hello">
 <div id="header">
   <h1 class="hd"><span>《</span>我的</h1>

@@ -3,7 +3,8 @@
   <h1 class="head"><a href="#/"><span>《</span></a>登录<span class="Login_mima">密码登录</span></h1>
 <div id="login">
   <div class="l_tel">
-    <input type="text" placeholder="用户名/手机号" class="text" v-model="username"/>
+    <input type="text" placeholder="用户名/手机号" class="text" v-model.lazy="username"/>
+    <span>{{username}}</span>
     <input type="button" value="获取验证码" class="button"/>
   </div>
   <div class="l_code">
@@ -58,6 +59,17 @@ export default {
       });
     }
 
+  },
+  mounted () {
+  },
+  updated(){
+        //用户名检测：数字、字母、下划线，数字不能开头、6-20
+        var reg = new RegExp('^[a-zA-Z_]\w{5,19}$');
+        console.log("qqq" + reg.test(this.username));
+        console.log(this.username);
+        if(reg.test(this.username)){}
+
+        //////////////////////////////////////////
   }
 }
 </script>
