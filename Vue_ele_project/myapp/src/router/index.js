@@ -9,6 +9,7 @@ import Regist from '@/components/Regist'
 import Login from '@/components/Login'
 import Xiangqing from '@/components/Xiangqing'
 import Search from '@/components/Search'
+import Details from "@/components/Details"
 
 
 import Hello from '@/components/Hello'
@@ -70,6 +71,11 @@ export default new Router({
       path: '/search',
       name: 'Search',
       component: Search
+    },
+    {
+      path: '/details',
+      name: 'Details',
+      component: Details
     }
   ]
 })
