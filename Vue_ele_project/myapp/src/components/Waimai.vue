@@ -100,7 +100,7 @@
 
     <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
     <div class="details" v-for="item in list">
-    	<img class="det_img" :src="'/static/img/'+item.b_img"/>
+    	<a href="#/xiangqing"><img class="det_img" :src="'/static/img/'+item.b_img"/></a>
         <!-- <img class="det_img" src="../img/2.jpeg"/> -->
         <!-- <img class="det_img" :src="imgurl"/> -->
     	<div class="det_text">

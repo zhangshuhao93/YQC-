@@ -24,6 +24,7 @@
 		</div>
 		<div class="xthr" v-if="currentIndex==0">
 			<div class="xthr1" ><span>热销</span>大家喜欢吃，才叫真好吃</div>
+			<a href="#/details" style="color:#000">
 			<div class="xthr2" v-for="(item,index) in list" >
 				<div class="xthr4">
 					<img :src="item.imgurl" >
@@ -41,9 +42,11 @@
 					</div>
 				</div>
 			</div>
+			</a>
 		</div>
 		<div class="xthr" v-else>
 			<div class="xthr1" ><span>优惠</span>优惠才是王道</div>
+			<a href="#/details" style="color:#000">
 			<div class="xthr2" v-for="(item,index) in list" >
 				<div class="xthr4">
 					<img :src="item.imgurl" >
@@ -61,6 +64,7 @@
 					</div>
 				</div>
 			</div>
+			</a>
 		</div>
 	</div>
 	<div class="xfou">

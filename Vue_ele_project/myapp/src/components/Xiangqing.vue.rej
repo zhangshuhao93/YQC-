@@ -1,8 +1,0 @@
-diff a/Vue_ele_project/myapp/src/components/Xiangqing.vue b/Vue_ele_project/myapp/src/components/Xiangqing.vue	(rejected hunks)
-@@ -1,6 +1,5 @@
- <template>
- <div class="hello">
--	我是详情
- 	<div class="xhead">
- 		<div class="xhe1"><a href="/Waimai">&lt</a></div>
- 		<div class="xhe2">
