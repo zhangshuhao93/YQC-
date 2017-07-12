@@ -69,7 +69,7 @@ export default {
 }
 
 .hello{display:flex;flex-direction: column;
-	.det{width:10rem;height:px2rem(656px);background:#007AFF;border-bottom:10px solid #ccc;
+	.det{width:10rem;height:px2rem(656px);background:#e58585;border-bottom:10px solid #ccc;
 		img{width:10rem;height:px2rem(408px)}
 		h3{height:px2rem(88px);line-height:px2rem(88px);padding-left:20px;font-size:px2rem(35px)}
 		p{height:px2rem(66px);line-height:px2rem(66px);padding-left:20px;font-size:px2rem(30px)}

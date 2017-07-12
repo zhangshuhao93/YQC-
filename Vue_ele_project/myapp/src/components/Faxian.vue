@@ -6,7 +6,7 @@
      <div class="ssec">
        <div class="ssec1" v-for="item in slist">
           <div class="ssec1t">
-            <img :src="item.simgurl">
+            <img :src="'static/img/'+item.simgurl">
             <div class="ssec1tr">
               <h3>{{item.sname}}</h3>
               <p>昨日：499</p>
@@ -21,12 +21,12 @@
             <h2>【今日头条】 芝麻南瓜饼</h2>
             <p class="hanzi">香甜软酥的芝麻南瓜饼好吃易做，一出锅，热乎乎香香甜甜的，好吃的忍不住吃了一块又一块，折友们快来做自己喜欢吃的消电点心。</p>
             <img src = "../img/12.png" class="datu"/>
-            <p class="hanzi1">赞：<img class ="img1" src="../img/font/赞.png" /></p>
+            <p class="hanzi1">赞：<img class ="img1" src="static/img/font/赞.png" /></p>
             <div>
-              <p class="hanzi3"><img class ="img1"  src="../img/font/时间.png"/>14分钟前</p>
-              <span class="s1"><img  class ="img1" src="../img/font/访问.png" />61</span>
-              <span class="s1"><img class ="img1"  src="../img/font/访问.png" />81</span>
-              <span class="s1"> <img class ="img1" src="../img/font/消息.png"/> 861</span>
+              <p class="hanzi3"><img class ="img1"  src="static/img/font/时间.png"/>14分钟前</p>
+              <span class="s1"><img  class ="img1" src="static/img/font/访问.png" />61</span>
+              <span class="s1"><img class ="img1"  src="static/img/font/访问.png" />81</span>
+              <span class="s1"> <img class ="img1" src="static/img/font/消息.png"/> 861</span>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@ $ui-width: 719px;
 }
 .shead{
 height:sa(70px);
-background:red;
+background:#e58585;
 color:white;
 font-size:sa(35px);
 text-align: center;
@@ -137,7 +137,7 @@ line-height:sa(70px);
       background-size: 100%;
     }
     #toutiao{width:9.6rem;padding:0.2rem;height:11.6rem;background:white;
-  .banzhu{height:1rem;line-height:1rem;width:8.5rem;background:#0ff;padding-left:1rem;
+  .banzhu{height:1rem;line-height:1rem;width:8.5rem;background:#e58585;padding-left:1rem;
     .quan{width:0.7rem;padding:0 0.1rem;height:0.5rem;border-radius: 5px;border: 1px solid #f00;}
     .lf{float:right;padding-right:0.1rem;}
   }

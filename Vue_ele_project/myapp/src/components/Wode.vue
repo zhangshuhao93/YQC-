@@ -95,7 +95,7 @@ $ui-width: 719px;
 #header{
   color:#fff;
   text-align:center;
-  background:#0096ff;
+  background:#e58585;
   font-size:px2rem(30px);
   padding: 0 px2rem(20px);
   margin-bottom: px2rem(10px);

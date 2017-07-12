@@ -207,7 +207,7 @@ $ui-width: 719px;
   @return $px/$ui-width*10rem;
 }
     #tupian{height:100%}
-    #header{width:100%;height:3.19889rem;background:#0096ff;box-sizing:border-box;padding:0 .27816rem;
+    #header{width:100%;height:3.19889rem;background:#e58585;box-sizing:border-box;padding:0 .27816rem;
         overflow: hidden;
     margin-bottom: px2rem(20px);}
     #header .top{overflow:hidden;width:100%;height:1.3491rem;line-height:1.3491rem;font-size:.27816rem;color:#fff}

@@ -1,7 +1,6 @@
 <template>
 	<div class="hello">
 	<p class="p1">订单</p>
-	
 	  	<div class="Dingdan" v-if="showDingdan">
 		    <div class="head"><h2>我的订单</h2><!--<a href="#">全部订单 > </a>--></div>
 		    <div class="main" v-for="item in list">
@@ -52,7 +51,7 @@
 
 <script>
 import Navfooter from './Navfooter';
-
+import {getCookie} from '../../static/js/getCookie.js';
 export default {
   name: 'dingdan',
   data () {
@@ -95,15 +94,15 @@ export default {
           var url="../../static/data/dingdan.json";
           this.$http.get(url).then(response => {
           	    console.log(response.bodyText);
-          	    console.log(response.bodyText.length)
-							console.log(response.bodyText[1].mName);	
-							this.list = eval(response.bodyText);
-							
-							if(response.bodyText.length === 9){
-									this.showDingdan = false;
-							}else{
-								this.showDingdan = true;
-							}
+          	    // console.log(response.bodyText.length)
+				// console.log(response.bodyText[1].mName);	
+				this.list = eval(response.bodyText);
+				
+				if(response.bodyText.length === 9){
+						this.showDingdan = false;
+				}else{
+					this.showDingdan = true;
+				}
 						
 	
           },function(response){
@@ -113,8 +112,8 @@ export default {
         creat:function(){
 				  var url="../../static/data/ding.json";
 				  this.$http.get(url).then(response => {
-					console.log(response.bodyText);
-					console.log(response.bodyText[1].mName);
+					// console.log(response.bodyText);
+					// console.log(response.bodyText[1].mName);
 					this.mai = eval(response.bodyText);
 
 				  },function(response){
@@ -141,10 +140,16 @@ export default {
 		}
     },
     mounted:function(){
-    	this.created();
+    	if(getCookie("username")){
+    		console.log("11111112222++++++" + getCookie("username"));
+    		this.created();
+    		
     	this.creat();
   		this.cre();
-    
+    	}
+    // 	this.created();
+    // 	this.creat();
+  		// this.cre();
     }
 	  
     
@@ -165,7 +170,7 @@ export default {
 
 
 .hello{display:flex;flex-direction: column;
-.p1{position:fixed;top:0;z-index:999;width:100%;font-size:px2rem(45px); padding-left:px2rem(44px);color:#fff;height:px2rem(110px);line-height:px2rem(110px);background: #0096FF;}
+.p1{position:fixed;top:0;z-index:999;width:100%;font-size:px2rem(45px); padding-left:px2rem(44px);color:#fff;height:px2rem(110px);line-height:px2rem(110px);background: #e58585;}
 .noDingdan{
 	img{width:6rem;margin:3rem auto;}
 	h3{font-size:0.5rem;width:10rem;text-align: center;}

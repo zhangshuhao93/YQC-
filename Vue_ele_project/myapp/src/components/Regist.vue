@@ -68,12 +68,11 @@ $ui-width: 719px;
 }
 
 .head{
-  background:red;
     height:px2rem(80px);
     line-height:px2rem(80px);
     color:#fff;
     text-align:center;
-    background:#0096ff;
+    background:#e58585;
     font-size:px2rem(30px);
     padding: 0 px2rem(20px);
   span{
