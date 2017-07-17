@@ -24,32 +24,12 @@
 		</div>
 		<div class="xthr" v-if="currentIndex==0">
 			<div class="xthr1" ><span>热销</span>大家喜欢吃，才叫真好吃</div>
-			<a href="#/details" style="color:#000">
-			<div class="xthr2" v-for="(item,index) in list" >
+			
+				<div class="xthr2" v-for="(item,index) in list" >
 				<div class="xthr4">
-					<img :src="item.imgurl" >
-				</div>
-				<div class="xthr3">
 				
-					<div class="xthr33">{{item.name}}</div>
-					<div class="xthr31"><li>月售{{item.count}}份</li><li>好评率97%</li></div>
-					<div class="xthr32">
-						<span>￥{{item.price}}</span>元						
-			<!-- ---------------------- 点击加号----------------------- -->
-						<div >
-							<img src="../img/xq5.png" @click="add(index)">
-						</div>				
-					</div>
-				</div>
-			</div>
-			</a>
-		</div>
-		<div class="xthr" v-else>
-			<div class="xthr1" ><span>优惠</span>优惠才是王道</div>
-			<a href="#/details" style="color:#000">
-			<div class="xthr2" v-for="(item,index) in list" >
-				<div class="xthr4">
-					<img :src="item.imgurl" >
+					<img :src="item.img" @click="details(index)">
+						
 				</div>
 				<div class="xthr3">
 				
@@ -64,25 +44,109 @@
 					</div>
 				</div>
 			</div>
-			</a>
+			
+		</div>
+		<div class="xthr" v-if="currentIndex==1">
+			<div class="xthr1" ><span>优惠</span>优惠才是王道</div>
+			<div class="xthr2" v-for="(item,index) in name" >
+				<div class="xthr4" @click="details(index)">
+					<img :src="item.img"  >
+				</div>
+				<div class="xthr3">		
+					<div class="xthr33">{{item.name}}</div>
+					<div class="xthr31"><li>月售{{item.count}}份</li><li>好评率97%</li></div>
+					<div class="xthr32">
+						<span>￥{{item.price}}</span>元						
+			
+						<div >
+							<img src="../img/xq5.png" @click="add(index)">
+						</div>				
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="xthr" v-if="currentIndex==2">
+			<div class="xthr1" ><span>组合套餐</span>搭配才是王道</div>
+			<div class="xthr2" v-for="(item,index) in name" >
+				<div class="xthr4">
+					<img :src="item.img" >
+				</div>
+				<div class="xthr3">		
+					<div class="xthr33">{{item.name}}</div>
+					<div class="xthr31"><li>月售{{item.count}}份</li><li>好评率97%</li></div>
+					<div class="xthr32">
+						<span>￥{{item.price}}</span>元						
+			
+						<div >
+							<img src="../img/xq5.png" @click="add(index)">
+						</div>				
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="xthr" v-if="currentIndex==3">
+			<div class="xthr1" ><span>组合套餐</span>搭配才是王道</div>
+			<div class="xthr2" v-for="(item,index) in name" >
+				<div class="xthr4">
+					<img :src="item.img" >
+				</div>
+				<div class="xthr3">		
+					<div class="xthr33">{{item.name}}</div>
+					<div class="xthr31"><li>月售{{item.count}}份</li><li>好评率97%</li></div>
+					<div class="xthr32">
+						<span>￥{{item.price}}</span>元						
+			
+						<div >
+							<img src="../img/xq5.png" @click="add(index)">
+						</div>				
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="xthr" v-if="currentIndex==4">
+			<div class="xthr1" ><span>饮品</span>夏日够酷爽</div>
+			<div class="xthr2" v-for="(item,index) in name" >
+				<div class="xthr4">
+					<img :src="item.img" >
+				</div>
+				<div class="xthr3">		
+					<div class="xthr33">{{item.name}}</div>
+					<div class="xthr31"><li>月售{{item.count}}份</li><li>好评率97%</li></div>
+					<div class="xthr32">
+						<span>￥{{item.price}}</span>元						
+			
+						<div >
+							<img src="../img/xq5.png" @click="add(index)">
+						</div>				
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="xfou">
-		<div class="xfou1">			
+		<div class="xfou1" @click="show()">			
 				 <img src="../img/购物车1.png">	
-				 <span :class="{xfo11:this.count !==0}">{{this.count}}</span>		
+				 <span :class="{xfo11:this.counts !==0}">{{this.counts}}</span>		
 		</div>
 		<div class="xfou2">
-			<p class="xfou21">￥0</p>
+			<p class="xfou21">￥{{this.price}}</p>
 			<p>配送费￥4</p>
 		</div>
-		<div class="xfou3">20元起送</div>	
+		<div class="xfou3" @click="fs()">20元起送</div>	
+	</div>
+	
+	<div class="xfif" v-if="lg==true" >
+		<div class="xfif1" v-for="(item,index) in ccar">
+			<div>{{item.name}}</div><div  class="xfif2"><span @click="jian(ccar, index, item)" >-</span><span class="s1">{{item.cnt123}}份</span><span @click="jia(ccar, index, item)">+</span></div>
+		</div>
+		<img src="../img/font/差号.png" class="ch" @click="cc()">
 	</div>
 </div>
 </template>
 
 <script>
 import Navfooter from './Navfooter';
+import Vue from 'Vue';
 export default {
   name: 'xiangqing',
   data () {
@@ -90,40 +154,162 @@ export default {
       list:[],
       currentIndex:0,
       currentIndex1:100,
-      count:0
-      // flag:false,
+      counts:0,
+      ccar:[],
+      lg:false,
+      price:0,
+      name:[]
     }
   },
   methods:{
+  	details:function(index){
+		console.log(this.list[index].img);
+		this.$http.get('/h51701/apii/Goods/detail',{
+			params:{img:this.list[index].img}
+		}).then(response => {
+          
+       console.log(response.body.goods_info[0].id);
+       location.hash = "/details?"+response.body.goods_info[0].id;
+       
+       this.list = response.body.goods_info;      
+		}, response => {
+       // error callback
+        console.log("error");
+      });
+  	},
     getData: function(){
-      this.$http.get('../../static/data/test1.json').then(response => {
-        // console.log(response.bodyText);
-          // get body data
-          this.list = eval(response.bodyText);
-
-
+      this.$http.get('/h51701/apii/Goods/info').then(response => {
+          
+          var data = JSON.parse(response.bodyText);
+          
+          this.list = data.goods_info;
         }, response => {
           // error callback
           console.log("error");
         });
-    },change(index){
-
-    	// e.currentTarget.style.background='red';
+    },
+    change(index){	
     	this.currentIndex  = index;
     	console.log(this.currentIndex)
+    	this.shualeft();
     	
     },
-    add(index){
-    	this.currentIndex1=index;
-    	console.log(this.currentIndex1)
+    fs(){
+    	this.$http.post('/h51701/apii/Carts/add',{
+    		count:this.counts
+    	}).then(response => {
+          	alert("成功")
+	          var data = JSON.parse(response.bodyText);
+	         
+	          this.name = data.goods_info;
+	        }, response => {
+	          // error callback
+	          console.log("error");
+	        });
+    },
+    shualeft(){
+    	if(this.currentIndex==1){
+    		this.$http.get('/h51701/apii/Goods/info1').then(response => {
+          
+	          var data = JSON.parse(response.bodyText);
+	         
+	          this.name = data.goods_info;
+	        }, response => {
+	          // error callback
+	          console.log("error");
+	        });
+    	}
+    	if(this.currentIndex==2){
+    			this.$http.get('/h51701/apii/Goods/info2').then(response => {
+          
+	          var data = JSON.parse(response.bodyText);
+	          console.log(data)
+	          this.name = data.goods_info;
+	        
+	        }, response => {
+	          // error callback
+	          console.log("error");
+	        });
+    	}
+    	if(this.currentIndex==3){
+    			this.$http.get('/h51701/apii/Goods/info3').then(response => {
+          
+	          var data = JSON.parse(response.bodyText);
+	          console.log(data)
+	          this.name = data.goods_info;
+	        
+	        }, response => {
+	          // error callback
+	          console.log("error");
+	        });
+    	}
+    	if(this.currentIndex==4){
+    			this.$http.get('/h51701/apii/Goods/info4').then(response => {
+          
+	          var data = JSON.parse(response.bodyText);
+	          console.log(data)
+	          this.name = data.goods_info;
+	        
+	        }, response => {
+	          // error callback
+	          console.log("error");
+	        });
+    	}
+    },
+    add(index){ 
+    	
+       	this.currentIndex1=index;
+    	
     	let cont=0;
-    	cont=this.count+1; 
-    	this.count=cont
-     	console.log(this.count)
-    }
+    	cont=this.counts+1; 
+    	this.counts=cont
+    	var existFlag = false;
+    	var existIndex = -1;
+    	// alert(this.ccounts+1)
+    	for(var i =0;i<this.ccar.length;i++) {
+    		if(this.ccar[i].name == this.list[index].name) {
+    			existFlag = true;
+    			existIndex = i;
+    			break;
+    		}
+    	}
+    	if(existFlag) {
+    		this.ccar[existIndex].cnt123 += 1;
+    	} else {
+    		this.list[index].cnt123 = 1;
+	     	this.ccar.push(this.list[index])
+    	}
+    	this.price+=this.list[this.currentIndex1].price
+    	
+    },
+    show(){
+    	this.lg=true;
+    },
+    cc(){
+    	   this.lg=false;
+    },
+    jian(ccar, index, item){
+
+    	item.cnt123 -= 1;
+    	if(item.cnt123=0){
+    		item.cnt123=0
+    		this.counts=0
+    	}
+    	this.counts-=1
+   		this.price-=this.ccar[index].price
+    	
+    	Vue.set(ccar, index, item);
+    },
+    jia(ccar, index, item){
+    	item.cnt123 += 1;
+    	this.counts+=1
+    	Vue.set(ccar, index, item);
+    },
+
 },
 mounted () {
 	this.getData();
+	
 }
 }
 </script>
@@ -262,6 +448,9 @@ ul,li{
 				margin-left:sa(25px);
 			}
 		}
+		a{
+			color:black;
+		}
 		.xthr2{
 			width:sa(580px);
 			height:sa(220px);
@@ -351,6 +540,7 @@ ul,li{
 	 	bottom:sa(22px);
 	 	color:red;
 	 	font-size:sa(50px);
+	 	z-index: 40;
 	 }
 	}
 	.xfou2{
@@ -371,6 +561,46 @@ ul,li{
 		line-height:sa(93px);
 		text-align: center;
 		background:#535356;
+	}
+}
+
+.xfif{
+	width:100%;
+	height:sa(200px);
+	background:grey;
+	position: absolute;
+	bottom:sa(94px);
+	overflow-y: auto;
+	.xfif1{	margin-left:sa(40px);
+		height:sa(30px);
+		z-index: 30;
+		color:white;
+		font-size:sa(35px);
+		display:flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-top:sa(30px);
+		.xfif2{
+			margin-right:sa(50px);
+			width:sa(200px);
+			height:sa(30px);
+			span{
+				margin-right:sa(20px);
+				color:red;
+			}
+			.s1{
+				color:white;
+			}
+		}
+	}
+	.ch{
+		width:sa(40px);
+		height:sa(40px);
+		position:fixed;
+		right:sa(20px);
+		bottom:sa(240px);
+		border-radius: 50%;
+		border-color:red;
 	}
 }
 </style>

@@ -5,8 +5,8 @@
 		    <div class="head"><h2>我的订单</h2><!--<a href="#">全部订单 > </a>--></div>
 		    <div class="main" v-for="item in list">
 		    	<div class="tou">
-		    		<img src="../img/ctu.jpg"/>
-		    		<h2>{{item.mName}}<span>订单已经完成</span></h2>
+		    		<img :src="item.img"/>
+		    		<h2>{{item.b_name}}<span style="color:#007AFF">订单已生成</span></h2>
 		    		<p class="p2">2017-06-06 18:43</p>
 		    	</div>
 		    	<div class="di">
@@ -35,7 +35,7 @@
 		    		<p class="pp1">满35减12 ， 满58 减20</p>
 		    		<p class="pp2">买过一次</p>
 		    	</div>
-		    	
+		    
 		    </div>
 		    
 	    </div>
@@ -62,7 +62,9 @@ export default {
       willShow:true,
       dingData:'',
       list : [],
-      mai:　[]
+      mai:　[],
+      user: '000032',
+      username:0
     }
   },
    components: {
@@ -91,65 +93,35 @@ export default {
           }
         },
         created:function(){
-          var url="../../static/data/dingdan.json";
-          this.$http.get(url).then(response => {
-          	    console.log(response.bodyText);
-          	    // console.log(response.bodyText.length)
-				// console.log(response.bodyText[1].mName);	
-				this.list = eval(response.bodyText);
-				
-				if(response.bodyText.length === 9){
-						this.showDingdan = false;
-				}else{
-					this.showDingdan = true;
-				}
-						
-	
+    		this.showDingdan=true;
+			console.log(getCookie("username"));
+			this.username=getCookie("username");
+          this.$http.get('/h51701/apii/Goods/queryshop',{
+          		params:{username:this.username}
+          	}).then(response => {
+          	  console.log(response);
+          	  this.list = response.body.goods;
           },function(response){
           	console.log("error");
           })
         },
         creat:function(){
-				  var url="../../static/data/ding.json";
-				  this.$http.get(url).then(response => {
-					// console.log(response.bodyText);
-					// console.log(response.bodyText[1].mName);
-					this.mai = eval(response.bodyText);
-
-				  },function(response){
-				  	console.log("error");
-       	
-				  })
-				},
-		cre:function(){
-			if(this.showDingdan ){
-          		this.nodingdan = false;
-          		
-          	}else{
-          		this.nodingdan = true;
-          	}
+        	
+		this.$http.get('/h51701/apii/Goods/queryshop',{
+          	params:{username:this.username}
+          	}).then(response => {
+          	  console.log(response);
+          	  this.list = response.body.goods;
+          },function(response){
+          	console.log("error");
+          })
 		},
-		noding:function(){
-			if(this.nodingdan){
-				this.showDingdan=false;
-				
-			}else{
-				this.showDingdan = true;
-			}
-			
-		}
     },
     mounted:function(){
     	if(getCookie("username")){
     		console.log("11111112222++++++" + getCookie("username"));
     		this.created();
-    		
-    	this.creat();
-  		this.cre();
     	}
-    // 	this.created();
-    // 	this.creat();
-  		// this.cre();
     }
 	  
     

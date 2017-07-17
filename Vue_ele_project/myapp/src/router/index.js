@@ -10,6 +10,7 @@ import Login from '@/components/Login'
 import Xiangqing from '@/components/Xiangqing'
 import Search from '@/components/Search'
 import Details from "@/components/Details"
+import Mtest from "@/components/Mtest"
 
 
 import Hello from '@/components/Hello'
@@ -76,6 +77,11 @@ export default new Router({
       path: '/details',
       name: 'Details',
       component: Details
+    },
+    {
+      path: '/mtest',
+      name: 'Mtest',
+      component: Mtest
     }
   ]
 })

@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-import { Loadmore } from 'mint-ui';
+import { Loadmore, Toast } from 'mint-ui';
 
 Vue.config.productionTip = false
 

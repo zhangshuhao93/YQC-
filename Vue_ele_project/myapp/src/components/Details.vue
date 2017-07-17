@@ -1,10 +1,10 @@
 <template>
 	<div class="hello">
-		<div class="det">
-			<img src="../img/4.jpg" />
-			<h3>蜀小龙火锅（罗斯福天星店）</h3>
-			<p>月售 45</p>
-			<h2><span>￥19.9起</span><button>加入购物车</button></h2>
+		<div class="det" v-for="item in list">
+			<img :src="item.img" />
+			<h3>{{item.name}}</h3>
+			<p>月售{{item.count}}份</p>
+			<h2><span>￥{{item.price}}起</span><button @click="locat">加入购物车</button></h2>
 		</div>
 		<div class="pingjia" >
 			<h2>用户评价 <span>(好评率 100%)</span></h2>
@@ -30,7 +30,9 @@ export default {
   name: 'dingdan',
   data () {
   	return{
-  			userping:[]
+  			userping:[],
+  			img1:[],
+  			list:[]
   	}
   
    
@@ -39,6 +41,26 @@ export default {
     Navfooter
    },
    methods:{
+   	locat:function(){
+   		location.hash = "#/Xiangqing"
+   	},
+   	href:function(){
+   		var img1 = location.hash.split("?");
+   		this.img1 = img1[1];
+// 		alert(this.img1)
+   		this.$http.get('/h51701/apii/Goods/details',{
+			params:{id:this.img1}
+		}).then(response => {
+      console.log(response.bodyText)
+       var data = JSON.parse(response.bodyText);
+       console.log(data.goods_info)
+       this.list = data.goods_info;
+//     console.log(this.list)
+     }, response => {
+       // error callback
+       console.log("error");     });
+   	
+   	},
    	getdate:function(){
 		  var url="../../static/data/data/details.json";
 		  this.$http.get(url).then(response => {
@@ -54,8 +76,9 @@ export default {
        
     },
     mounted:function(){
+    	this.href();
     	this.getdate();
-    
+    	
     }
   
 }

@@ -70,6 +70,7 @@ a{
 .aaa{
   overflow-x:hidden;
   flex:1;
+  padding-bottom: 1.33519rem;
 }
 
 
