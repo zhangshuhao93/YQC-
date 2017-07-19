@@ -21,11 +21,11 @@
 		    		<h2 class="mai" @click="fn1"> 最近买过</h2>
 		    		<h2 class="shou" @click="fn2">最近收藏</h2>	
 		    	</div>
-		    	<div class="content1" v-if="willShow" v-for="item in mai">
-						<img src="../img/ctu2.jpg" />
-			    		<h2>{{item.mName}}</h2>
+		    	<div class="content1" v-if="willShow" v-for="item in list">
+						<img :src="item.img" />
+			    		<h2>{{item.b_name}}</h2>
 			    		<p class="pp1">满35减12 ， 满58 减20</p>
-			    		<p class="pp2">买过{{item.num}}次</p>
+			    		<p class="pp2">买过2次</p>
 		 
 		    		
 		    	</div>

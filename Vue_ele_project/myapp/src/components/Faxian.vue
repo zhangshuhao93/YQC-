@@ -142,7 +142,7 @@ $ui-width: 719px;
 }
 .shead{
 height:sa(70px);
-background:red;
+background:#e58585;
 color:white;
 font-size:sa(35px);
 text-align: center;
